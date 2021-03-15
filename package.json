@@ -1,0 +1,53 @@
+{
+  "name": "charts",
+  "version": "1.0.0",
+  "description": "webpack5 vue2 charts",
+  "main": "./build/bunder.js",
+  "files": [
+    "build/"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "echarts": "^4.9.0",
+    "number-precision": "^1.5.0",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.9.1",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.1",
+    "style-loader": "^2.0.0",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.10.1",
+    "webpack-bundle-analyzer": "^4.4.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.1",
+    "webpack-merge": "^5.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.prod.js",
+    "serve": "webpack serve --open --config webpack.dev.js",
+    "dist": "webpack --config webpack.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/movethink/charts.git"
+  },
+  "keywords": [
+    "webpack5",
+    "vue"
+  ],
+  "author": "guan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/movethink/charts/issues"
+  },
+  "homepage": "https://github.com/movethink/charts#readme"
+}
