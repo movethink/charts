@@ -1,14 +1,16 @@
 <template>
   <div>
     <h6>hello charts</h6>
-    <Charts
+    <!-- <Charts
       :options="echartsOptions"
       style="height: 400px; width: 750px;"
-    ></Charts>
+    ></Charts> -->
+    <Test></Test>
   </div>
 </template>
 <script>
 import Charts from "../components/Charts";
+import Test from "./test/Test";
 export default {
   data() {
     return {
@@ -16,7 +18,7 @@ export default {
     };
   },
   components: {
-    Charts,
+    Test,
   },
   methods: {
     initEchartsOptions() {
