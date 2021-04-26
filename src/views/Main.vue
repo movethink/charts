@@ -5,12 +5,13 @@
       :options="echartsOptions"
       style="height: 400px; width: 750px;"
     ></Charts> -->
-    <Test></Test>
+    <Sort></Sort>
   </div>
 </template>
 <script>
 import Charts from "../components/Charts";
 import Test from "./test/Test";
+import Sort from "../components/sort";
 export default {
   data() {
     return {
@@ -19,6 +20,7 @@ export default {
   },
   components: {
     Test,
+    Sort,
   },
   methods: {
     initEchartsOptions() {
