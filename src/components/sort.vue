@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>input: {{ input }}</p>
-    <p><button @click="sort">sort</button></p>
+    <p><button @click="sortFun(input)">sort</button></p>
     <p>output:{{ output }}</p>
   </div>
 </template>
@@ -16,9 +16,8 @@ export default {
   },
   components: {},
   methods: {
-    sort(event) {
-      console.log("input:", this.input);
-      let oldList = JSON.parse(JSON.stringify(this.input));
+    sort(arr) {
+      let oldList = arr;
       let sortList = [];
       while (oldList.length > 0) {
         let current = oldList.shift();
@@ -39,7 +38,23 @@ export default {
           }
         }
       }
-      console.log(sortList, "sortList");
+      return sortList;
+    },
+    insertionSort(arr) {
+      for (let i = 1; i < arr.length; i++) {
+        let preIndex = i - 1;
+        while (preIndex >= 0 && arr[preIndex + 1] < arr[preIndex]) {
+          let current = arr[preIndex + 1];
+          arr[preIndex + 1] = arr[preIndex];
+          arr[preIndex] = current;
+          preIndex--;
+        }
+      }
+      return arr;
+    },
+    sortFun(list) {
+      list = JSON.parse(JSON.stringify(list));
+      this.output = this.insertionSort(list);
     },
   },
   mounted() {},
