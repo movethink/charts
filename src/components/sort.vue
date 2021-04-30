@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       input: [5, 3, 9, 8, 1, 4, 6],
+      // input: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
       output: [],
     };
   },
@@ -41,6 +42,7 @@ export default {
       return sortList;
     },
     insertionSort(arr) {
+      let num = 0;
       for (let i = 1; i < arr.length; i++) {
         let preIndex = i - 1;
         while (preIndex >= 0 && arr[preIndex + 1] < arr[preIndex]) {
@@ -48,13 +50,32 @@ export default {
           arr[preIndex + 1] = arr[preIndex];
           arr[preIndex] = current;
           preIndex--;
+          num++;
         }
       }
+      console.log(num, "insertionSort num");
+      return arr;
+    },
+    bubbleSort(arr) {
+      let num = 0;
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            let current = arr[j + 1];
+            arr[j + 1] = arr[j];
+            arr[j] = current;
+          }
+          num++;
+        }
+      }
+      console.log(num, "bubbleSort num");
       return arr;
     },
     sortFun(list) {
-      list = JSON.parse(JSON.stringify(list));
-      this.output = this.insertionSort(list);
+      console.log(list, "input");
+      let newList = JSON.parse(JSON.stringify(list));
+      // this.output = this.insertionSort(newList);
+      this.output = this.bubbleSort(newList);
     },
   },
   mounted() {},
