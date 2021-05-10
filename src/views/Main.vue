@@ -6,7 +6,8 @@
       style="height: 400px; width: 750px;"
     ></Charts> -->
     <!-- <Sort></Sort> -->
-    <Tree></Tree>
+    <!-- <Tree></Tree> -->
+    <Array></Array>
   </div>
 </template>
 <script>
@@ -14,6 +15,7 @@ import Charts from "../components/Charts";
 import Test from "./test/Test";
 import Sort from "../components/sort";
 import Tree from "../components/tree";
+import Array from "../components/Array";
 export default {
   data() {
     return {
@@ -24,6 +26,7 @@ export default {
     Test,
     Sort,
     Tree,
+    Array,
   },
   methods: {
     initEchartsOptions() {
