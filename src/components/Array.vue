@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p><button @click="find(nums)">find</button></p>
+    <p><button @click="action(nums)">action</button></p>
   </div>
 </template>
 <script>
@@ -9,7 +9,8 @@ export default {
   data() {
     return {
       // nums: [1, 3, 4, 5, 7, 8, 10, 12, 14, 17, 22],
-      nums: [-1, 0, 3, 5, 9, 12],
+      // nums: [-1, 0, 3, 5, 9, 12],
+      nums: [0, 1, 2, 2, 3, 0, 4, 2],
     };
   },
   components: {},
@@ -33,8 +34,53 @@ export default {
       }
       return -1;
     },
-    find(nums) {
-      let index = this.search(nums, 2);
+    removeElement1(nums, val) {
+      let flagValue = null;
+      let num = 0;
+      for (let i = 0; i < nums.length; i++) {
+        for (let j = 0; j < nums.length - 1 - i; j++) {
+          if (nums[j] === val) {
+            flagValue = nums[j];
+            nums[j] = nums[j + 1];
+            nums[j + 1] = flagValue;
+          }
+        }
+      }
+      for (let k = 0; k < nums.length; k++) {
+        if (nums[k] !== val) {
+          num++;
+        }
+      }
+      return num;
+    },
+    removeElement2(nums, val) {
+      let size = nums.length;
+      for (let i = 0; i < size; i++) {
+        if (nums[i] === val) {
+          for (let k = i; k < size - 1; k++) {
+            nums[k] = nums[k + 1];
+          }
+          i--;
+          size--;
+        }
+      }
+      console.log(nums, "nums");
+      return size;
+    },
+    removeElement3(nums, val) {
+      let flag = 0;
+      for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+          nums[flag] = nums[i];
+          flag++;
+        }
+      }
+      console.log(nums, "nums");
+      return flag;
+    },
+    action(nums) {
+      // let index = this.search(nums, 2);
+      let index = this.removeElement3(nums, 2);
       console.log(index, "index");
     },
   },
