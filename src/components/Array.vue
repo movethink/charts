@@ -10,11 +10,20 @@ export default {
     return {
       // nums: [1, 3, 4, 5, 7, 8, 10, 12, 14, 17, 22],
       // nums: [-1, 0, 3, 5, 9, 12],
-      nums: [0, 1, 2, 2, 3, 0, 4, 2],
+      // nums: [0, 1, 2, 2, 3, 0, 4, 2],
+      nums: [5, 7, 7, 8, 8, 10],
     };
   },
   components: {},
   methods: {
+    action(nums) {
+      // let index = this.searchInsert(nums, 6);
+      let index = this.searchRange(nums, 8);
+      // let index = this.removeElement3(nums, 2);
+      console.log(index, "index");
+    },
+    // 在排序数组中查找第一个和最后一个元素
+    searchRange(nums, target) {},
     /**
      * nums 检索数组
      * target 检索值
@@ -33,6 +42,22 @@ export default {
         }
       }
       return -1;
+    },
+    // 寻找插入值索引
+    searchInsert(nums, target) {
+      let left = 0,
+        right = nums.length - 1;
+      while (left <= right) {
+        let middle = Math.floor((left + right) / 2);
+        if (nums[middle] > target) {
+          right = middle - 1;
+        } else if (nums[middle] < target) {
+          left = middle + 1;
+        } else {
+          return middle;
+        }
+      }
+      return left;
     },
     removeElement1(nums, val) {
       let flagValue = null;
@@ -77,11 +102,6 @@ export default {
       }
       console.log(nums, "nums");
       return flag;
-    },
-    action(nums) {
-      // let index = this.search(nums, 2);
-      let index = this.removeElement3(nums, 2);
-      console.log(index, "index");
     },
   },
   mounted() {
