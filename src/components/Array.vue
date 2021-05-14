@@ -24,7 +24,27 @@ export default {
       // let index = this.removeElement3(nums, 2);
       let index = this.searchRange(nums, 9);
       console.log(index, "index");
-      this.mySqrt2(15);
+      // this.mySqrt2(15);
+      let flag = this.isPerfectSquare(24);
+      console.log(flag, "flag");
+    },
+    /**
+     * 判断num是否是一个完全平方数
+     */
+    isPerfectSquare(num) {
+      let left = 0,
+        right = num;
+      while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (mid * mid > num) {
+          right = mid - 1;
+        } else if (mid * mid < num) {
+          left = mid + 1;
+        } else if (mid * mid === num) {
+          return true;
+        }
+      }
+      return false;
     },
     mySqrt(x) {
       console.log(x, "x");
