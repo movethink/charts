@@ -15,12 +15,50 @@ export default {
     };
   },
   components: {},
+  mounted() {
+    console.log(this.nums, "nums");
+  },
   methods: {
     action(nums) {
       // let index = this.searchInsert(nums, 6);
       // let index = this.removeElement3(nums, 2);
       let index = this.searchRange(nums, 9);
       console.log(index, "index");
+      this.mySqrt2(15);
+    },
+    mySqrt(x) {
+      console.log(x, "x");
+      let left = 0,
+        right = x + 1;
+      while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+        if (mid * mid < x) {
+          left = mid + 1;
+        } else if (mid * mid > x) {
+          right = mid;
+        } else if (mid * mid === x) {
+          return mid;
+        }
+      }
+      console.log(left - 1, "sqrt");
+      return left - 1;
+    },
+    mySqrt2(x) {
+      console.log(x, "x");
+      let left = 0,
+        right = x;
+      while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (mid * mid < x) {
+          left = mid + 1;
+        } else if (mid * mid > x) {
+          right = mid - 1;
+        } else if (mid * mid === x) {
+          return mid;
+        }
+      }
+      console.log(right, "sqrt");
+      return right;
     },
     // 在排序数组中查找第一个和最后一个元素
     searchRange(nums, target) {
@@ -131,9 +169,6 @@ export default {
       console.log(nums, "nums");
       return flag;
     },
-  },
-  mounted() {
-    console.log(this.nums, "nums");
   },
 };
 </script>
