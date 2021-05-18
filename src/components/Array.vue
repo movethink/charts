@@ -11,7 +11,9 @@ export default {
       // nums: [1, 3, 4, 5, 7, 8, 10, 12, 14, 17, 22],
       // nums: [-1, 0, 3, 5, 9, 12],
       // nums: [0, 1, 2, 2, 3, 0, 4, 2],
-      nums: [5, 6, 7, 7, 8, 8, 8, 8, 8, 10],
+      // nums: [5, 6, 7, 7, 8, 8, 8, 8, 8, 10],
+      // nums: [0, 0, 1, 1, 1, 2, 2, 3, 3, 4],
+      nums: [0, 1, 0, 3, 12],
     };
   },
   components: {},
@@ -21,12 +23,40 @@ export default {
   methods: {
     action(nums) {
       // let index = this.searchInsert(nums, 6);
-      // let index = this.removeElement3(nums, 2);
-      let index = this.searchRange(nums, 9);
-      console.log(index, "index");
+      // let index = this.removeDuplicates(nums);
+      // let index = this.searchRange(nums, 9);
       // this.mySqrt2(15);
-      let flag = this.isPerfectSquare(24);
-      console.log(flag, "flag");
+      // let flag = this.isPerfectSquare(24);
+      // console.log(flag, "flag");
+      let index = this.moveZeroes(nums);
+      console.log(index, "index");
+    },
+    moveZeroes(nums) {
+      // [0,1,0,3,12]
+      let flag = 0;
+      let size = nums.length;
+      for (let i = 0; i < size; i++) {
+        if (nums[i] !== 0) {
+          nums[flag++] = nums[i];
+        }
+      }
+      while (flag < size) {
+        nums[flag++] = 0;
+      }
+      console.log(nums, "nums");
+      return nums;
+    },
+    removeDuplicates(nums) {
+      // [0,0,1,1,1,2,2,3,3,4]
+      let flag = 0;
+      for (let i = 1; i <= nums.length; i++) {
+        if (nums[i - 1] !== nums[i]) {
+          nums[flag] = nums[i - 1];
+          flag++;
+        }
+      }
+      console.log(nums, "nums");
+      return flag;
     },
     /**
      * 判断num是否是一个完全平方数
