@@ -28,8 +28,36 @@ export default {
       // this.mySqrt2(15);
       // let flag = this.isPerfectSquare(24);
       // console.log(flag, "flag");
-      let index = this.moveZeroes(nums);
-      console.log(index, "index");
+      // let index = this.moveZeroes(nums);
+      // console.log(index, "index");
+      this.backspaceCompare("y#fo##f", "y#f#o##f");
+    },
+    backspaceCompare(s, t) {
+      const formatString = (string) => {
+        let list = string.split("");
+        // [a,b,#,c]
+        let flag = 0;
+        let size = list.length;
+        for (let i = 0; i < size; i++) {
+          if (list[i] !== "#") {
+            list[flag++] = list[i];
+          } else {
+            if (flag > 0) {
+              flag--;
+            }
+          }
+        }
+        let newStr = "";
+        for (let i = 0; i < flag; i++) {
+          newStr = newStr + list[i];
+        }
+        return newStr;
+      };
+      let newS = formatString(s);
+      let newT = formatString(t);
+      console.log(newS, "newS");
+      console.log(newT, "newT");
+      return newS === newT;
     },
     moveZeroes(nums) {
       // [0,1,0,3,12]
