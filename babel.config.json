@@ -1,0 +1,30 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            // 设置plugins后可以不写这个配置项，免得重复打包增加包大小
+            // {
+            //     "useBuiltIns": "usage",
+            //     "modules": false,
+            //     "corejs": {
+            //         "version": 3
+            //     },
+            //     "targets": {
+            //         "ie": "11"
+            //     }
+            // }
+        ]
+    ],
+    "plugins": [
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": {
+                    "version": 3,
+                    "proposals": true
+                },
+                "useESModules": true
+            }
+        ]
+    ]
+}

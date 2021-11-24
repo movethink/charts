@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h3>{{ title }}</h3>
     <Main></Main>
   </div>
 </template>
@@ -8,7 +9,7 @@ import Main from "./views/Main";
 export default {
   data() {
     return {
-      message: "vue",
+      title: "YN-chart-middleware",
     };
   },
   components: {

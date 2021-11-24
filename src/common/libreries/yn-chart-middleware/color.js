@@ -1,0 +1,131 @@
+const color20 = [
+	'#015ABB',
+	'#4D8BCF',
+	'#5AAAFA',
+	'#8BC3FB',
+	'#76DEFB',
+	'#9FE7FC',
+	'#48D4BB',
+	'#7EE0CF',
+	'#A2E05F',
+	'#BDE98F',
+	'#F3D458',
+	'#F6E08A',
+	'#FF9800',
+	'#FFB64C',
+	'#D04B3E',
+	'#DE8177',
+	'#E16476',
+	'#EA929F',
+	'#8F62DD',
+	'#B091E7'
+]
+const color10 = [
+	'#015ABB',
+	'#5AAAFA',
+	'#76DEFB',
+	'#48D4BB',
+	'#A2E05F',
+	'#F3D458',
+	'#FF9800',
+	'#D04B3E',
+	'#E16476',
+	'#8F62DD'
+]
+const colorBar = [
+	'#015ABB',
+	'#4D8BCF',
+	'#5AAAFA',
+	'#8BC3FB',
+	'#76DEFB',
+	'#9FE7FC',
+	'#48D4BB',
+	'#7EE0CF',
+	'#A2E05F',
+	'#BDE98F'
+]
+const colorLine = [
+	'#F3D458',
+	'#F6E08A',
+	'#FF9800',
+	'#FFB64C',
+	'#D04B3E',
+	'#DE8177',
+	'#E16476',
+	'#EA929F',
+	'#8F62DD',
+	'#B091E7'
+]
+const color5 = ['#015abb', '#48d4bb', '#f3d458', '#ff9800', '#e16476']
+const color5C = ['#7ca9db', '#a1e9dc', '#f9e9a9', '#ffcc81', '#f0b0b9']
+const color10C = [
+	'#7ca9db',
+	'#a9d3fc',
+	'#b9eefd',
+	'#a1e9dc',
+	'#d0efae',
+	'#f9e9a9',
+	'#ffcc81',
+	'#e8a69f',
+	'#f0b0b9',
+	'#c8b1ee'
+]
+const color20C = [
+	'#7ca9db',
+	'#a3c3e6',
+	'#a9d3fc',
+	'#c4e1fd',
+	'#b9eefd',
+	'#cff3fd',
+	'#a1e9dc',
+	'#bdefe6',
+	'#d0efae',
+	'#ddf4c6',
+	'#f9e9a9',
+	'#fbf0c5',
+	'#ffcc81',
+	'#ffdba6',
+	'#e8a69f',
+	'#eebfb9',
+	'#f0b0b9',
+	'#f4c7ce',
+	'#c8b1ee',
+	'#d8c8f3'
+]
+const colorBarC = [
+	'#7ca9db',
+	'#a3c3e6',
+	'#a9d3fc',
+	'#c4e1fd',
+	'#b9eefd',
+	'#cff3fd',
+	'#a1e9dc',
+	'#bdefe6',
+	'#d0efae',
+	'#ddf4c6'
+]
+const colorLineC = [
+	'#f9e9a9',
+	'#fbf0c5',
+	'#ffcc81',
+	'#ffdba6',
+	'#e8a69f',
+	'#eebfb9',
+	'#f0b0b9',
+	'#f4c9cf',
+	'#c8b1ee',
+	'#d8c8f3'
+]
+
+export {
+	color20,
+	color5,
+	color10,
+	colorBar,
+	colorLine,
+	color5C,
+	color20C,
+	color10C,
+	colorBarC,
+	colorLineC
+}

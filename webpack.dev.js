@@ -4,11 +4,12 @@ const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 const VueLoaderPlugin = require("vue-loader/lib/plugin-webpack5");
 const Webpack = require("webpack");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const dev = {
   mode: "development",
   entry: {
-    app: "./src/main.js",
+    app: ["./src/main.js"],
     vendor: ["vue"],
   },
   output: {
@@ -18,9 +19,15 @@ const dev = {
   optimization: {
     minimize: false,
   },
-  devtool: "eval",
+  devtool: "source-map",
   devServer: {
     contentBase: "./dist",
+  },
+  stats: {
+    modules: false,
+    children: false,
+    chunks: false,
+    chunkModules: false,
   },
   module: {
     rules: [
@@ -32,10 +39,28 @@ const dev = {
         test: /\.vue$/,
         use: [{ loader: "vue-loader" }],
       },
+      {
+        test: /\.svg/,
+        use: ["file-loader"],
+      },
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
     ],
   },
   resolve: {
     extensions: [".ts", ".js", ".vue"],
+    alias: {
+      vue: "vue/dist/vue.js",
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -46,6 +71,7 @@ const dev = {
     new Webpack.ProvidePlugin({
       Vue: ["vue/dist/vue.esm.js", "default"],
     }),
+    new CleanWebpackPlugin(),
   ],
 };
 

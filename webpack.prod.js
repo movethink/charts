@@ -1,18 +1,19 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 const prod = {
   mode: "production",
-  entry: "./src/common/libreries/index.js",
+  entry: "./src/common/libreries/yn-chart-middleware/index.js",
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "bunble.js",
-    library: "Charts",
+    filename: "yn-chart-middleware.js",
+    library: "ynChartMiddleware",
     libraryTarget: "umd",
   },
   optimization: {
-    minimize: false,
+    minimize: true,
   },
   target: ["web", "es5"],
   // devtool: "source-map",
@@ -27,7 +28,20 @@ const prod = {
       },
     ],
   },
-  plugins: [],
+  plugins: [
+    //打包环境去掉console.log
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          drop_console: true, //注释console
+          drop_debugger: true, //注释debugger
+        },
+      },
+      // chunkFilter: () => {
+      //   return false;
+      // },
+    }),
+  ],
   // 把以下依赖不打入包中，让包文件去外部宿主中引入这些依赖
   externals: {
     echarts: {
