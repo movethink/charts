@@ -1,7 +1,7 @@
 {
   "name": "yn-chart-middleware",
   "version": "3.2.5",
-  "description": "元年图表转换中间件，转换可视化结构为标准echarts options，并且美化为元年统一风格的样式。",
+  "description": "shit bi",
   "main": "./build/yn-chart-middleware.js",
   "files": [
     "build/"

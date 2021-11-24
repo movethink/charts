@@ -9,70 +9,11 @@
         style="height: 400px; width: 750px; margin: 0 auto"
         v-if="chartType === 'charts'"
       ></Charts>
-      <Table
-        :options="tableOptions"
-        style="height: 400px; width: 750px; margin: 0 auto"
-        v-if="chartType === 'table'"
-      ></Table>
     </div>
   </div>
 </template>
 <script>
-import {
-  mockBar,
-  mockBar2,
-  mockBar3,
-  mockBar4,
-  mockBarLongLegend,
-  mockBarRDB,
-  mockBarRDBOnlyY,
-  mockBarRDBOnlyYReal,
-  mockBarRDBOnlyYReal2,
-  mockBarRDBOnlyYRealNew,
-  mockBarRDBSameLegend,
-  mockBarRDBSameLegendByDate,
-  mockLine,
-  mockLineRDB,
-  mockgauge,
-  mockgauge2,
-  mockBarWaterfallChart,
-  mockHorBar,
-  mockHorBar2,
-  mockMap,
-  mockMixedLineAndBar,
-  mockMixedLineAndBar2,
-  mockPie,
-  mockPieRDB,
-  mockPieRDB2,
-  mockPieRDB3,
-  mockScatter,
-  mockNumber,
-  mockNumber2,
-  mockNumberRDB,
-  mockG6Tree,
-  mockTree1,
-  mockG6TreeTarget,
-} from "../common/mock/chart";
-import { mockHideBar, mockHideBar2 } from "../common/mock/chart/hideValue";
 import Charts from "../components/Charts";
-import Table from "../components/Table";
-import {
-  getEchartsData,
-  formatToYNChart,
-  transformsTable,
-} from "../common/libreries/yn-chart-middleware";
-// import {
-//   getEchartsData,
-//   formatToYNChart,
-//   transformsTable,
-// } from "yn-chart-middleware";
-import {
-  sdvMock,
-  sdvMock2,
-  sdvMock3,
-  sdvMock4,
-  sdvMock4R,
-} from "../common/mock/table/sdv";
 
 import { mapState, mapGetters } from "vuex";
 export default {
@@ -105,17 +46,7 @@ export default {
      * 可视化数据结构转echarts options
      */
     initEchartsOptions() {
-      // 生成echars options
-      let options = getEchartsData(mockLine, {
-        hideNullValue: false, //是否去除零值
-        legendStrict: true, // 是否严格使用legend字段显示图的系列，主要用于legend中只有一个维度成员的情况
-      });
-      // 生成YN样式风格的echarts options
-      options = formatToYNChart(options, {
-        completeXAxisName: true, // 是否使用完整的x轴名称
-        tooltipTypeSemple: true, // tooltip是否不使用axis样式
-      });
-      this.echartsOptions = options;
+      
     },
     initStore() {
       this.$store
